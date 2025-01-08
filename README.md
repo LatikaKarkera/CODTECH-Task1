@@ -54,3 +54,8 @@ Conclusion
 This project demonstrates the practical application of relational database design and SQL. By creating a database to manage student records, including personal details, courses, and grades, the project illustrates the importance of table relationships and how to manipulate data efficiently using SQL. The project also emphasizes the use of joins to combine data from multiple tables, retrieve relevant information, and update records. The final system serves as a comprehensive tool for managing student enrollments and their academic performance. This exercise provided valuable experience in creating, populating, and querying relational databases, which is a foundational skill for managing complex datasets in real-world applications.
 
 #OUTPUT:
+![Screenshot 2025-01-09 001111](https://github.com/user-attachments/assets/7dfe5646-3ccf-4b70-9b29-9e91021e5aec)
+![Screenshot 2025-01-09 001124](https://github.com/user-attachments/assets/ed89e667-1d19-4541-bec7-7304c9c2b652)
+![Screenshot 2025-01-09 001148](https://github.com/user-attachments/assets/0d3ab55c-8bda-4d81-8809-fda366d78a93)
+![Screenshot 2025-01-09 001238](https://github.com/user-attachments/assets/d332db31-262a-49ee-b2af-156095208db4)
+![Screenshot 2025-01-09 001328](https://github.com/user-attachments/assets/7c9adfd9-0f0b-4ed1-b03d-3653230ec60d)
