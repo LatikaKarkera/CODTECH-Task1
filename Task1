@@ -1,0 +1,95 @@
+create database StudentManagement;
+use StudentManagement;
+
+create table Student (
+    StudentID int auto_increment primary key,
+    FirstName varchar(30) NOT NULL,
+    LastName varchar(30) not null,
+    DateOfBirth date,
+    Gender varchar(20),
+    Email varchar(100)
+);
+
+create table Course (
+    CourseID int auto_increment primary key,
+    CourseName varchar(100) not null,
+    CourseCode varchar(10) not null,
+    Credits int
+);
+
+create table Enrollment (
+    EnrollmentID int auto_increment primary key,
+    StudentID int not null,
+    CourseID int not null,
+    Grade varchar(2) null
+);
+
+-- Insert values into Student table
+INSERT INTO Student (FirstName, LastName, DateOfBirth, Gender, Email)
+VALUES
+('Riya', 'Mishra', '2004-05-17', 'Female', 'riya@random.com'),
+('Rishi', 'Oberoi', '2003-06-22', 'Male', 'roberoi@random.com'),
+('Atul', 'Vishwakarma', '2005-12-01', 'Male', 'atulvish@random.com'),
+('Soniya', 'Kunder', '2002-11-08', 'Female', 'kunderson@random.com'),
+('Dhruv', 'Sharma', '2003-09-12', 'Male', 'sharmadhruv@random.com'),
+('Aarya', 'Patel', '2005-12-01', 'Male', 'apatel@random.com'),
+('Nilesh', 'Dubey', '2004-05-15', 'Male', 'nileshdub@random.com'),
+('Arpita', 'Tiwari', '2002-12-15', 'Female', 'tiwarpita@random.com'),
+('Leena', 'Diaz', '2004-07-05', 'Female', 'lennadiaz@example.com');
+
+-- Insert values into Course table
+INSERT INTO Course (CourseName, CourseCode, Credits)
+VALUES
+('Mathematics', 'MATH101', 5),
+('Physics', 'PHYS201', 3),
+('Computer Science', 'CS301', 4),
+('Psychology', 'PSY401', 5),
+('Economics', 'ECOS501', 3),
+('Architecture', 'ARC601', 4),
+('Pharmacy', 'PHA701', 4),
+('Law', 'LAW801', 5),
+('Geography', 'GEO901', 3);
+
+-- Insert values into Enrollment table
+INSERT INTO Enrollment (StudentID, CourseID, Grade)
+VALUES
+(1, 1, 'A'),
+(1, 3, 'B'),
+(2, 3, 'A'),
+(2, 4, 'B'),
+(3, 5, 'C'), 
+(3, 6, 'B'), 
+(4, 7, 'A'), 
+(4, 8, 'A'),
+(5, 9, 'B'), 
+(6, 1, 'A'), 
+(7, 2, 'C'),
+(8, 3, 'B'), 
+(9, 4, 'A');
+
+
+select * from Student;
+select * from Course;
+
+-- enrollments with student names, course names, and grades
+select
+    e.EnrollmentID, 
+    CONCAT(s.FirstName, ' ', s.LastName) AS StudentName,
+    c.CourseName,
+    e.Grade
+from Enrollment e
+JOIN Student s ON e.StudentID = s.StudentID
+JOIN Course c ON e.CourseID = c.CourseID;
+
+-- students enrolled in a specific course
+select CONCAT(s.FirstName, ' ', s.LastName) AS StudentName
+from Enrollment e
+JOIN Student s ON e.StudentID = s.StudentID
+JOIN Course c ON e.CourseID = c.CourseID
+WHERE c.CourseName = 'Computer Science';
+
+-- updating a student's grades 
+UPDATE Enrollment
+SET Grade = 'A'
+WHERE StudentID = 1 AND CourseID = 3;
+
